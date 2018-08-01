@@ -19,7 +19,9 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes/:id', (req, res) => {
-  res.json(data[req.params.id]);
+  const id = req.params.id;
+  let note = data.find(item => item.id === Number(id));
+  res.json(note);
 });
 
 app.listen(8080, function() {
